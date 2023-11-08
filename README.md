@@ -1,16 +1,18 @@
 # GPU-Docker
 
 ## 0. Desinstale
+```bash
 sudo apt remove nvidia-*
 sudo apt-get remove --purge nvidia-*
 sudo apt remove --purge '^nvidia-.*'
 sudo apt remove --purge '^libnvidia-.*'
 sudo apt autoremove
+```
 
 
 ## 1. Install Nvidia-Driver - 5.15, valid for cuda 11.7
 
-```
+```bash
 export DISTRO=ubuntu2004
 export ARCH=x86_64
 sudo add-apt-repository -r restricted
@@ -27,7 +29,7 @@ sudo apt install -y nvidia-driver-515
 
 ## 1. Install Cuda 11.7
 
-```
+```bash
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
 
 sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
@@ -48,7 +50,7 @@ sudo apt-get -y install cuda-11-7
 ## 2. Instalar `nvidia-docker2`
 
 ```
-distribution=$(. /etc/os-release;echo $ID$VERSION_ID)       && curl -s -L https://nvidia.github.io/libnvidia-container/gpgkey | sudo apt-key add -       && curl -s -L https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-container.list | sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID) && curl -s -L https://nvidia.github.io/libnvidia-container/gpgkey | sudo apt-key add - && curl -s -L https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-container.list | sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
 
 sudo apt-get update
 
